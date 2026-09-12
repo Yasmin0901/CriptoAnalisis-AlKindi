@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta 
+        name="viewport" 
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        CriptoLab | Laboratorio de cifrado clásico
+    </title>
+
+    <link 
+        rel="stylesheet" 
+        href="styles.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- 01-H -->
+    <div 
+        class="fondo-animado" 
+        aria-hidden="true"
+    >
+
+        <div class="cuadricula"></div>
+
+
+        <div class="orb orb-1"></div>
+
+        <div class="orb orb-2"></div>
+
+        <div class="orb orb-3"></div>
+
+
+        <span class="particula p-1">
+            A7 · 01 · B
+        </span>
+
+        <span class="particula p-2">
+            CAESAR · +03
+        </span>
+
+        <span class="particula p-3">
+            # 10 11 · X
+        </span>
+
+        <span class="particula p-4">
+            ATBASH · A → Z
+        </span>
+
+        <span class="particula p-5">
+            010101 · 65
+        </span>
+
+        <span class="particula p-6">
+            SHIFT · 03
+        </span>
+
+        <span class="particula p-7">
+            Z → A · 26
+        </span>
+
+        <span class="particula p-8">
+            AL-KINDI
+        </span>
+
+
+        <span class="flujo flujo-1">
+
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ · 
+            0123456789 · 
+            # @ % &amp; * · 
+            CAESAR · ATBASH ·
+
+        </span>
+
+
+        <span class="flujo flujo-2">
+
+            01001000 01001111 01001100 01000001 · 
+            A → B → C → D → E → F →
+
+        </span>
+
+
+        <span class="flujo flujo-3">
+
+            ATBASH · 
+            ZYXWVUTSRQPONMLKJIHGFEDCBA · 
+            AL-KINDI · FRECUENCIA · ANÁLISIS
+
+        </span>
+
+
+        <div class="diagrama">
+
+            <div class="nodo nodo-1">
+                A
+            </div>
+
+            <span class="flecha flecha-1">
+                →
+            </span>
+
+            <div class="nodo nodo-2">
+                D
+            </div>
+
+            <span class="flecha flecha-2">
+                →
+            </span>
+
+            <div class="nodo nodo-3">
+                X
+            </div>
+
+            <span class="shift-diagrama">
+                +03
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- 02-H -->
+    <div class="contenedor">
+
+
+        <header class="encabezado">
+
+            <div>
+
+                <div class="marca">
+                    CRIPTO LAB
+                </div>
+
+                <div class="subtitulo">
+                    Laboratorio de cifrado clásico
+                </div>
+
+            </div>
+
+
+            <div class="edicion">
+
+                PRÁCTICA 01
+
+                <br>
+
+                CRIPTOGRAFÍA · UAA
+
+            </div>
+
+        </header>
+
+
+
+        <!-- 03-H -->
+        <section class="introduccion">
+
+            <div class="introduccion-texto">
+
+                <h1>
+
+                    Transforma.
+
+                    <br>
+
+                    Analiza.
+
+                    <br>
+
+                    Descifra.
+
+                </h1>
+
+
+                <p>
+
+                    Experimenta con los métodos 
+                    César y Atbash mediante 
+                    alfabetos personalizados.
+
+                </p>
+
+            </div>
+
+        </section>
+       <!-- 04-H -->
+<main class="area-principal">
+
+
+    <!-- 05-H -->
+    <aside class="tarjeta configuracion">
+
+
+        <!-- 06-H -->
+        <section class="bloque">
+
+            <div class="etiqueta">
+                01 · Alfabeto
+            </div>
+
+            <h2>
+                Alfabeto personalizado
+            </h2>
+
+            <textarea
+                id="alfabeto"
+                rows="3"
+                placeholder="Ingresa aquí el alfabeto..."
+            >ABCDEFGHIJKLMNOPQRSTUVWXYZ</textarea>
+
+            <p class="ayuda">
+                Puedes utilizar letras,
+                números, símbolos y
+                caracteres especiales.
+            </p>
+
+        </section>
+
+
+        <div class="separador"></div>
+
+
+        <!-- 07-H -->
+        <section class="bloque texto-entrada">
+
+            <div class="etiqueta">
+                02 · Texto a procesar
+            </div>
+
+            <h2>
+                Oración de entrada
+            </h2>
+
+            <textarea
+                id="texto"
+                rows="7"
+                placeholder="Escribe aquí la oración que deseas procesar..."
+            ></textarea>
+
+
+            <div class="contador">
+
+                <span id="contador">
+                    0 caracteres
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <div class="separador"></div>
+
+
+        <!-- 08-H -->
+        <section class="bloque">
+
+            <div class="etiqueta">
+                03 · Operación
+            </div>
+
+            <h2>
+                ¿Qué deseas hacer?
+            </h2>
+
+            <select id="operacion">
+
+                <option value="cifrar">
+                    Cifrar
+                </option>
+
+                <option value="descifrar">
+                    Descifrar
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <div class="separador"></div>
+
+
+        <!-- 09-H -->
+        <section
+            class="bloque"
+            id="campoMetodo"
+        >
+
+            <div class="etiqueta">
+                04 · Método
+            </div>
+
+            <h2>
+                Método de cifrado
+            </h2>
+
+            <div class="metodos">
+
+                <button
+                    type="button"
+                    class="metodo activo"
+                    data-metodo="cesar"
+                >
+                    César
+                </button>
+
+                <button
+                    type="button"
+                    class="metodo"
+                    data-metodo="atbash"
+                >
+                    Atbash
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <div class="separador"></div>
+
+
+        <!-- 10-H -->
+        <section
+            class="bloque"
+            id="bloqueDesplazamiento"
+        >
+
+            <div class="etiqueta">
+                05 · Parámetro
+            </div>
+
+            <h2>
+                Desplazamiento
+            </h2>
+
+            <input
+                type="number"
+                id="desplazamiento"
+                value="3"
+            >
+
+            <p class="ayuda">
+                Número de posiciones
+                que se recorre dentro
+                del alfabeto.
+            </p>
+
+        </section>
+
+
+        <div class="separador"></div>
+
+
+        <!-- 11-H -->
+        <div class="botones">
+
+            <button
+                type="button"
+                id="btnCifrar"
+                class="btn btn-principal"
+            >
+                🔒 Cifrar
+            </button>
+
+            <button
+                type="button"
+                id="btnDescifrar"
+                class="btn btn-secundario"
+            >
+                🔓 Descifrar
+            </button>
+
+        </div>
+
+    </aside>
+            <!-- 12-H -->
+<section class="tarjeta procesamiento">
+
+
+    <section class="resultado">
+
+        <div class="etiqueta">
+            06 · Resultado
+        </div>
+
+
+        <h2>
+            Salida criptográfica
+        </h2>
+
+
+        <textarea
+            id="resultado"
+            rows="7"
+            readonly
+            placeholder="Aquí aparecerá el resultado..."
+        ></textarea>
+
+
+        <div class="informacion-resultado">
+
+
+            <div>
+
+                <span>
+                    Estado
+                </span>
+
+
+                <strong id="estado">
+                    Esperando entrada
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Método
+                </span>
+
+
+                <strong id="metodoLectura">
+                    César
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <span>
+                    Desplazamiento
+                </span>
+
+
+                <strong id="desplazamientoLectura">
+                    3
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 13-H -->
+    <section class="analisis">
+
+
+        <div class="etiqueta">
+            07 · Análisis criptográfico
+        </div>
+
+
+        <div class="caja-analisis">
+
+
+            <div class="titulo-analisis">
+
+
+                <div>
+
+                    <h2>
+                        Análisis inspirado
+                        en Al-Kindi
+                    </h2>
+
+
+                    <p>
+                        Identificación automática
+                        del cifrado
+                    </p>
+
+                </div>
+
+
+                <span class="badge">
+                    AUTOMÁTICO
+                </span>
+
+
+            </div>
+
+
+
+            <div class="datos-analisis">
+
+
+                <div class="dato">
+
+                    <span>
+                        Método detectado
+                    </span>
+
+
+                    <strong
+                        id="metodoDetectado"
+                    >
+                        Pendiente
+                    </strong>
+
+                </div>
+
+
+
+                <div class="dato">
+
+                    <span>
+                        Desplazamiento
+                    </span>
+
+
+                    <strong
+                        id="desplazamientoDetectado"
+                    >
+                        Pendiente
+                    </strong>
+
+                </div>
+
+
+
+                <div class="dato">
+
+                    <span>
+                        Frecuencia
+                    </span>
+
+
+                    <strong
+                        id="frecuenciaDetectada"
+                    >
+                        Pendiente
+                    </strong>
+
+                </div>
+
+
+
+                <div class="dato">
+
+                    <span>
+                        Confianza
+                    </span>
+
+
+                    <strong
+                        id="confianzaDetectada"
+                    >
+                        Pendiente
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <p class="nota-analisis">
+
+                Esta sección utiliza análisis
+                estadístico inspirado en el
+                trabajo de Al-Kindi para
+                identificar automáticamente
+                el método de cifrado y obtener
+                la mejor solución posible.
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <p
+        id="mensaje"
+        class="mensaje"
+    ></p>
+
+
+</section>
+
+
+</main>
+       <!-- 15-H -->
+<footer class="pie">
+
+
+    <span>
+
+        CRIPTO LAB ·
+        PRÁCTICA ACADÉMICA
+
+    </span>
+
+
+    <span>
+
+        ASCII · UNICODE · AL-KINDI
+
+    </span>
+
+
+</footer>
+
+
+</div>
+
+
+<!-- 16-H -->
+<script src="detector.js"></script>
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>
